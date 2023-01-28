@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://edge.noxity.io/css/cpanel-error-pages/style.css">
+    <link rel="stylesheet" href="https://edge.noxity.io/css/cpanel-error-pages/important.css">
+
+    <script src="https://kit.fontawesome.com/cf5b0e520c.js" crossorigin="anonymous"></script>
+    <title>This page does not exist</title>
+</head>
+
+<body>
+
+    <main class="container">
+
+        <nav>
+            <ul>
+                <img src="https://edge.noxity.io/logo/transparent/4.png" width="225px">
+            </ul>
+            <ul>
+                <li><a href="https://support.noxity.io" role="button">Contact Support</a></li>
+            </ul>
+        </nav>
+        <hr style="text-align: center;">
+        <br>
+        <h3 style="text-align: center;">Please select the connection type:</h3>
+
+        <div class="grid">
+            <div>
+                <article style="margin: 10px; padding: 30px; text-align: center;">
+                    <i class="fa-solid fa-lock-open" style="font-size: 80px; color: #cc004d;"></i>
+                    <br>
+                    <br>
+                    <h5 style="text-align: center;">If you are not behind a firewall that blocks port [% data.port FILTER html %]</h5>
+                    <a href="[% data.preferredMethod_redirect_url FILTER html %]" class="createbutton" role="button">Enter Here</a>
+                </article>
+            </div>
+
+            <div>
+                <article style="margin: 10px; padding: 30px; text-align: center;">
+                    <i class="fa-solid fa-lock" style="font-size: 80px; color: #cc004d; text-align: center;"></i>
+                    <br>
+                    <br>
+                    <h5 style="text-align: center;">If you are behind a firewall and can not connect to port [% data.port FILTER html %]</h5>
+                    <a href="[% data.proxyMethod_redirect_url FILTER html %]" class="createbutton" role="button">Enter Here</a>
+                </article>
+            </div>
+        </div>
+
+        <div class="center" style="text-align: center;">
+          <br>
+          <hr>
+          <br>
+          <hgroup>
+              <h2>Stuck or need extra help?</h2>
+              <br>
+              <h3>Please contact us if you don't know how to proceed. We will be happy to help!</h3>
+          </hgroup>
+      </div>
+
+    </main>
+
+
+    <script type="text/javascript">
+
+        var counter = 0;
+        var poll_counter = 0;
+        var statusBoxEl = document.getElementById('statusBox');
+        var connectmethodEl = document.getElementById('connectmethodname');
+        
+        var searchiFrames = {
+          'preferredMethod':{
+            'available': 1,
+            'active': 1,
+            'name': 'preferred',
+            'timeout': 6,
+            'element': document.getElementById('preferredMethod'),
+            'test_url': [% data.json_preferredMethod_test_url %],
+            'redirect_url': [% data.json_preferredMethod_redirect_url %]
+          },
+          'proxyMethod':{
+            'available': 1,
+            'active': 0,
+            'name': 'proxy',
+            'timeout': 6,
+            'element': document.getElementById('proxyMethod'),
+            'test_url': [% data.json_proxyMethod_test_url %],
+            'redirect_url': [% data.json_proxyMethod_redirect_url %]
+          },
+          'nonsecureMethod':{
+            'available': 1,
+            'active': 0,
+            'name': 'nonsecure',
+            'timeout': 6,
+            'element': document.getElementById('nonsecureMethod'),
+            'test_url': [% data.json_nonsecureMethod_test_url %],
+            'redirect_url': [% data.json_nonsecureMethod_redirect_url %] /* Note: will auto redirect to ssl if available */
+          },
+          'nonsecureProxyMethod':{
+            'available': 1,
+            'active': 0,
+            'name': 'nonsecure proxy',
+            'timeout': 6,
+            'element': document.getElementById('nonsecureProxyMethod'),
+            'test_url': [% data.json_nonsecureProxyMethod_test_url %],
+            'redirect_url': [% data.json_nonsecureProxyMethod_redirect_url %]
+          }
+        };
+        
+        
+        if (searchiFrames['preferredMethod'].test_url === searchiFrames['nonsecureMethod'].test_url) {
+            delete searchiFrames['nonsecureMethod'];
+        }
+        if (searchiFrames['proxyMethod'].test_url === searchiFrames['nonsecureProxyMethod'].test_url) {
+            delete searchiFrames['nonsecureProxyMethod'];
+        }
+        
+        /* Cycle though each of the iframe options
+           that we have in searchiFrames until one
+           of them redirects us into cPanel, or they
+           all timeout and we just force trying the
+           preferred method */
+        
+        function poll_iframes() {
+          poll_counter++;
+        
+          var methods_checked = 0;
+          for (var searchmethod in searchiFrames) {
+            if (searchiFrames.hasOwnProperty(searchmethod)) {
+              if (searchiFrames[searchmethod].available) {
+                methods_checked++;
+        
+                if (searchiFrames[searchmethod].active === 0) {
+                  // show the user how we are trying to connect
+                  connectmethodEl.innerHTML=searchiFrames[searchmethod].name;
+        
+                  searchiFrames[searchmethod].active = 1;
+                  searchiFrames[searchmethod].element.src = searchiFrames[searchmethod].test_url;
+                }
+        
+                var check_result = checkIframeFailed(searchiFrames[searchmethod].element);
+                searchiFrames[searchmethod].timeout--;
+        
+                if (check_result.has_cpanel_loader === 1) {
+                  window.location.href=searchiFrames[searchmethod].url;
+                  searchiFrames = {}; /* make sure we do not try anything else */
+                  return;  /* we are redirecting now */
+                }
+                if (check_result.failed === 1 || searchiFrames[searchmethod].timeout <= 0) {
+                  searchiFrames[searchmethod].active = 0;
+                  searchiFrames[searchmethod].available = 0;
+                } else {
+                  return;  /* wait for next check */
+                }
+              }
+            }
+          }
+        
+          /* If everything times out, just attempt to redirect to the preferred method */
+          if (methods_checked === 0) {
+            connectmethodEl.innerHTML='force preferred';
+            window.location.href=searchiFrames['preferredMethod'].redirect_url;
+            searchiFrames = {}; /* make sure we do not try anything else */
+          }
+        
+        }
+        
+        function checkIframeFailed(iFrameEl) {
+          var iframe_has_cpanel_loader = 0;
+          var iframe_failed = 0;
+        
+          var errHtml;
+          try {
+            var iFrameDoc = (iFrameEl.contentDocument || iFrameEl.contentWindow || iFrameEl);
+            if (iFrameDoc.document) { iFrameDoc=iFrameDoc.document; }
+            if (iFrameDoc.innerHTML) { errHtml=iFrameDoc.innerHTML; }
+            if (errHtml) {
+              if ( errHtml.match(/cPanel Loader/))  {
+                iframe_has_cpanel_loader = 1;
+              } else if ( errHtml.match(/(404|connection|not|unavailable)/i)) {
+                iframe_failed = 1;
+              }
+            }
+          } catch (e) {
+            //console.log(e);
+            //console.log(e.message);
+            if (e && e.message && e.message.match(/denied/i)) {
+              iframe_failed = 0;
+            } else {
+              iframe_failed = 1;
+            }
+          }
+        
+          return {'failed':iframe_failed, 'has_cpanel_loader':iframe_has_cpanel_loader};
+        }
+        
+        function updatecount() {
+          var dots='';
+          counter++;
+          if (counter == 15) { counter=0; }
+          for(i=0;i<=counter;i++) {
+            dots+='.';
+          }
+          statusBoxEl.innerHTML=dots;
+        }
+        
+        var actorEl = document.getElementById('actor');
+        if (actorEl) { actorEl.innerHTML='<b>cPanel®</b> is connecting '; }
+        if (! [% data.preview %]) {
+          setInterval(poll_iframes,1000);
+        
+          if (statusBoxEl) {
+            setInterval(updatecount,80);
+          }
+        }
+        
+        </script>
+
+</body>
+
+</html>
