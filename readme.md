@@ -1,48 +1,45 @@
 # cPanel Error Pages
 
-This repository contains code for custom cPanel error pages to replace their default looks provided by cPanel.
-
-![License](https://img.shields.io/badge/license-closed%20source-red)
+This repository contains open source code for custom cPanel error pages featuring modern CSS design and functionality changes. The aim is to provide a more personalized and user-friendly alternative to the default error pages provided by cPanel which are at the moment ourdated.
 
 ***
 
 ## Table of Contents
 
-*   [Getting Started](#getting-started)
-*   [Authors](#authors)
-*   [Contributing](#contributing)
-*   [Acknowledgements](#acknowledgements)
+- [Getting Started](#getting-started)
+- [License](#license)
+- [Authors](#authors)
+- [Contributing](#contributing)
+- [Acknowledgements](#acknowledgements)
 
 ***
 
 ## Getting Started
 
-To setup custom error pages:
+These instructions will guide you on how to implement custom error pages in your cPanel:
 
-1.  Login into WHM.
-2.  In the tools search bar, search for "web template editor".
-3.  Select one of the pages that you want to edit the custom style for.
-4.  In the field available enter the HTML for your new suspension page, or modify the existing page. You can click the preview button below the text field to see what the Suspension page currently looks like.
-5.  Click the "Save" button when you are finished.
+1. Login into WHM (Web Host Manager).
+2. In the tools search bar, search for "web template editor".
+3. Select the error page you wish to customize.
+4. Enter your custom HTML in the provided field, or modify the existing template. A preview feature is available to view your changes in real time.
+5. Click "Save" to apply your custom error page.
+
+Feel free to use or adapt the provided templates in this repository according to your needs.
 
 ***
 
 ## Authors
 
-*   [Matic Bončina](https://github.com/maticboncina)
+- [Matic Bončina](https://github.com/maticboncina)
 
 ***
 
 ## Contributing
 
-Contributions are currently not accepted as this project is not open-sourced. However, if you notice any bugs or issues, please open an issue on the [company JIRA board](https://jira.spyingonyour.webcam).
+Your contributions are welcome! For any bugs or feature requests, please open an issue first to discuss what you would like to change or open a pull request.
 
 ***
 
 ## Acknowledgements
 
-There are no acknowledgements at this time.
-
-This project is not open-source and all rights are reserved by the project owners.
-
-***
+- Pico.css is used as a CSS framework for the error pages. You can find the project [here](https://picocss.com/).
