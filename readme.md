@@ -1,4 +1,4 @@
-# cPanel Error Pages
+# Better cPanel Error Pages
 
 This repository contains open source code for custom cPanel error pages featuring modern CSS design and functionality changes. The aim is to provide a more personalized and user-friendly alternative to the default error pages provided by cPanel which are at the moment ourdated.
 
