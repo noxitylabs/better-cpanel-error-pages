@@ -13,10 +13,9 @@
 
     <nav class="top-nav">
         <div class="pill">
-            <div class="brand">
-                <span class="brand-mark"><img src="img/logo.png" alt=""></span>
-                <span>Noxity</span>
-            </div>
+            <a class="brand" href="https://noxity.io">
+                <img class="brand-logo" src="img/logo.png" alt="Noxity">
+            </a>
             <span class="nav-spacer"></span>
             <div class="nav-actions">
                 <button class="icon-btn" type="button" data-theme-toggle aria-label="Toggle theme">
@@ -37,13 +36,10 @@
             <h1 class="error-headline">Pick how you'd <em>like</em> to connect.</h1>
             <p class="error-lead">Pick the option that fits your network. If one's blocked, the other usually works.</p>
 
-            <div style="display:flex;justify-content:center;margin-bottom:48px">
-                <div class="status-row">
-                    <span class="status-dot"></span>
-                    <span id="actor">cPanel is connecting</span>
-                    <span id="connectmethodname"></span>
-                    <span id="statusBox"></span>
-                </div>
+            <div style="display:none" aria-hidden="true">
+                <span id="actor"></span>
+                <span id="connectmethodname"></span>
+                <span id="statusBox"></span>
             </div>
 
             <div class="grid-2">
@@ -80,8 +76,6 @@
             </div>
         </section>
 
-        <hr class="divider">
-
         <section class="help-block container">
             <h2>Stuck or need a hand?</h2>
             <p>Drop us a line and someone on the team will help you get in. No queues, no scripted replies.</p>
@@ -95,8 +89,7 @@
             <div class="container">
                 <div class="foot-row">
                     <span class="foot-brand">
-                        <span class="brand-mark"><img src="img/logo.png" alt=""></span>
-                        Noxity
+                        <img class="brand-logo" src="img/logo.png" alt="Noxity">
                     </span>
                     <span>Hosting since 2019 · noxity.io</span>
                 </div>
