@@ -1,45 +1,66 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://edge.noxity.io/css/cpanel-error-pages/style.css">
-    <link rel="stylesheet" href="https://edge.noxity.io/css/cpanel-error-pages/important.css">
-
-    <script src="https://kit.fontawesome.com/cf5b0e520c.js" crossorigin="anonymous"></script>
-    <title>Website Moved</title>
+    <title>Site moved · Noxity</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/theme.js"></script>
 </head>
 
 <body>
 
-    <main class="container">
-
-        <nav>
-            <ul>
-                <img src="https://edge.noxity.io/logo/transparent/4.png" width="225px">
-            </ul>
-            <ul>
-                <li><a href="https://support.noxity.io" role="button">Contact Support</a></li>
-            </ul>
-        </nav>
-        <hr style="text-align: center;">
-        <br>
-
-        <div class="center" style="text-align: center;">
-
-
-            <hgroup>
-                <i class="fa-solid fa-truck" style="font-size: 140px; color: #cc004d;"></i>
-                <br>
-                <br>
-
-                <h2>This site has been moved to a new server.</h2>
-                <br>
-                <h3>Follow these <a href="https://go.cpanel.net/cleardnscache" target="clearDNS">instructions</a> to clear your DNS cache and possibly restore this site.<br>Contact support if you still face issues after clearning cache.</h3>
-            </hgroup>
+    <nav class="top-nav">
+        <div class="pill">
+            <div class="brand">
+                <span class="brand-mark"><img src="img/logo.png" alt=""></span>
+                <span>Noxity</span>
+            </div>
+            <span class="nav-spacer"></span>
+            <div class="nav-actions">
+                <button class="icon-btn" type="button" data-theme-toggle aria-label="Toggle theme">
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+                </button>
+                <a class="btn-pill" href="https://support.noxity.io">
+                    Contact support
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+                </a>
+            </div>
         </div>
+    </nav>
+
+    <main>
+        <section class="error-main container">
+            <div class="error-illu">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            </div>
+            <div class="error-eyebrow"><span class="eyebrow">DNS · Cache mismatch</span></div>
+            <h1 class="error-headline">This site has <em>moved.</em></h1>
+            <p class="error-lead">The site you're after moved to a new server. Your computer's probably still pointed at the old address. Clear your DNS cache and it should load.</p>
+            <div class="error-actions">
+                <a class="btn-pill" href="https://go.cpanel.net/cleardnscache" target="clearDNS">
+                    How to clear DNS cache
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+                </a>
+                <a class="btn-pill btn-pill-ghost" href="https://support.noxity.io">Still stuck? Talk to us</a>
+            </div>
+        </section>
+
+        <footer class="foot">
+            <div class="container">
+                <div class="foot-row">
+                    <span class="foot-brand">
+                        <span class="brand-mark"><img src="img/logo.png" alt=""></span>
+                        Noxity
+                    </span>
+                    <span>Hosting since 2019 · noxity.io</span>
+                </div>
+            </div>
+        </footer>
     </main>
+
 </body>
 
 </html>

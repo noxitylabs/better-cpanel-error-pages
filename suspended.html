@@ -1,48 +1,86 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://edge.noxity.io/css/cpanel-error-pages/style.css">
-    <link rel="stylesheet" href="https://edge.noxity.io/css/cpanel-error-pages/important.css">
-
-    <script src="https://kit.fontawesome.com/cf5b0e520c.js" crossorigin="anonymous"></script>
-    <title>Account Suspended</title>
+    <title>Account suspended · Noxity</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/theme.js"></script>
 </head>
 
 <body>
 
-    <main class="container">
-
-        <nav>
-            <ul>
-                <img src="https://edge.noxity.io/logo/transparent/4.png" width="225px">
-            </ul>
-            <ul>
-                <li><a href="https://support.noxity.io" role="button">Contact Support</a></li>
-            </ul>
-        </nav>
-        <hr style="text-align: center;">
-        <br>
-
-        <div class="center" style="text-align: center;">
-
-
-            <hgroup>
-                <i class="fa-solid fa-user-lock" style="font-size: 140px; color: #cc004d;"></i>
-                <br>
-                <br>
-
-                <h2>This Account has been suspended</h2>
-                <br>
-                <h3>If you are the owner of this website, please us on the link above for more information.
-                    <br>
-                    If you are a visitor to this website, please contact the owner of this website to inform them of
-                    this problem.</h3>
-            </hgroup>
+    <nav class="top-nav">
+        <div class="pill">
+            <div class="brand">
+                <span class="brand-mark"><img src="img/logo.png" alt=""></span>
+                <span>Noxity</span>
+            </div>
+            <span class="nav-spacer"></span>
+            <div class="nav-actions">
+                <button class="icon-btn" type="button" data-theme-toggle aria-label="Toggle theme">
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+                </button>
+                <a class="btn-pill" href="https://support.noxity.io">
+                    Contact support
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+                </a>
+            </div>
         </div>
+    </nav>
+
+    <main>
+        <section class="error-main container">
+            <div class="error-illu">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><circle cx="12" cy="16" r="1"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <div class="error-eyebrow"><span class="eyebrow">Account status</span></div>
+            <h1 class="error-headline">This account is <em>suspended.</em></h1>
+            <p class="error-lead">The hosting account behind this domain is on hold, so the site won't load until that's resolved. The owner can reach us to bring it back.</p>
+            <div class="error-actions">
+                <a class="btn-pill" href="https://support.noxity.io">
+                    Get in touch
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="grid-2">
+                    <div>
+                        <h3 style="font-size:22px;font-weight:600;letter-spacing:-0.02em;margin:0 0 18px">If this is your site</h3>
+                        <ul class="list-clean">
+                            <li>Hit the button at the top to reach us. We'll tell you what's needed to lift the suspension.</li>
+                            <li>Have your account email or domain ready before you write in. It speeds things up.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 style="font-size:22px;font-weight:600;letter-spacing:-0.02em;margin:0 0 18px">If you're a visitor</h3>
+                        <ul class="list-clean">
+                            <li>Only the site's owner can fix this. Let them know the page isn't loading so they can talk to us.</li>
+                            <li>Try again in a day or two. Most suspensions don't last long.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="foot">
+            <div class="container">
+                <div class="foot-row">
+                    <span class="foot-brand">
+                        <span class="brand-mark"><img src="img/logo.png" alt=""></span>
+                        Noxity
+                    </span>
+                    <span>Hosting since 2019 · noxity.io</span>
+                </div>
+            </div>
+        </footer>
     </main>
+
 </body>
 
 </html>
