@@ -207,8 +207,6 @@ em.serif, .serif {
     width: auto;
 }
 
-.foot .brand-logo { height: 22px; }
-
 .nav-spacer { flex: 1; }
 
 .nav-actions {
@@ -490,30 +488,6 @@ em.serif, .serif {
     max-width: 56ch;
     margin: 0 auto 28px;
     font-size: 17px;
-}
-
-/* ============================================================
-   Footer
-   ============================================================ */
-
-.foot {
-    border-top: 1px solid var(--nox-border);
-    padding: 24px 0 32px;
-    margin-top: 24px;
-}
-
-.foot-row {
-    display: flex;
-    justify-content: space-between;
-    gap: 24px;
-    flex-wrap: wrap;
-    font-size: 13px;
-    color: var(--nox-text-mute);
-}
-
-.foot-brand {
-    display: flex;
-    align-items: center;
 }
 
 /* ============================================================
