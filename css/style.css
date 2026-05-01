@@ -145,10 +145,10 @@ em.serif, .serif {
 .eyebrow {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     font-family: var(--nox-font-mono);
     font-weight: 500;
-    font-size: 11px;
+    font-size: 13px;
     letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--nox-text-2);
@@ -156,8 +156,8 @@ em.serif, .serif {
 
 .eyebrow::before {
     content: "";
-    width: 6px;
-    height: 6px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
     background: var(--nox-accent);
 }
@@ -277,7 +277,7 @@ em.serif, .serif {
    ============================================================ */
 
 .error-main {
-    padding: 96px 0 80px;
+    padding: 80px 0 32px;
 }
 
 .error-eyebrow {
@@ -340,11 +340,11 @@ em.serif, .serif {
    Reasons grid
    ============================================================ */
 
-.section { padding: 64px 0; }
+.section { padding: 32px 0; }
 
 .section-head {
     text-align: center;
-    margin-bottom: 48px;
+    margin-bottom: 32px;
 }
 
 .section-head h2 {
@@ -498,8 +498,8 @@ em.serif, .serif {
 
 .foot {
     border-top: 1px solid var(--nox-border);
-    padding: 32px 0 40px;
-    margin-top: 64px;
+    padding: 24px 0 32px;
+    margin-top: 24px;
 }
 
 .foot-row {
