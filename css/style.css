@@ -105,7 +105,12 @@ body {
     transition: background 240ms var(--nox-ease), color 240ms var(--nox-ease);
 }
 
-main { flex: 1; }
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
 ::selection {
     background: var(--nox-accent);
